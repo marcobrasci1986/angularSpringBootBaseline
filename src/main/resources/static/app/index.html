@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="angularBaseline">
+<head>
+    <title>Angular Baseline</title>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Angular Baseline</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<!-- Node Modules-->
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<script type="text/javascript" src="../node_modules/traverson-angular/browser/dist/traverson-angular.js"></script>
+<script type="text/javascript" src="../node_modules/traverson-hal/browser/dist/traverson-hal.min.js"></script>
+
+
+<!-- App JS-->
+<script type="text/javascript" src="app.js"></script>
+<!-- Controllers -->
+<script type="text/javascript" src="employee/EmployeeController.js"></script>
+<!-- Services -->
+<script type="text/javascript" src="employee/EmployeeService.js"></script>
+<script type="text/javascript" src="common/NoDependencyService.js"></script>
+
+</body>
+</html>
