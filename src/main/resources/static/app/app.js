@@ -12,7 +12,7 @@
     angular.module('controllers', []);
     angular.module('services', ['traverson']);
 
-    app.constant('API_ROOT_URL', 'http://localhost:8080/employees/');
+    app.constant('API_ROOT_URL', 'http://localhost:8080/api');
 
     app.config(StateController);
 

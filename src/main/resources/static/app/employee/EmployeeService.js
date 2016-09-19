@@ -11,7 +11,7 @@
         traverson.registerMediaType(TraversonJsonHalAdapter.mediaType, TraversonJsonHalAdapter);
 
         function request() {
-            return traverson.from(API_ROOT_URL).json();
+            return traverson.from(API_ROOT_URL).jsonHal().withRequestOptions({headers: {'accept': 'application/hal+json'}});;
         }
 
         return {
@@ -22,6 +22,7 @@
 
         function _findEmployees() {
             return request()
+                 .follow("employees", "list")
                 .getResource().result;
 
         }

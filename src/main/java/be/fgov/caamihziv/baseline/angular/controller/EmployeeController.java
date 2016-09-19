@@ -1,8 +1,11 @@
 package be.fgov.caamihziv.baseline.angular.controller;
 
 import be.fgov.caamihziv.baseline.angular.domain.Employee;
+import org.springframework.data.rest.webmvc.RepositoryLinksResource;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.Resources;
+import org.springframework.hateoas.UriTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +18,9 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
+//import org.springframework.hateoas.Link;
 
 /**
  * http://localhost:8080/employees
@@ -22,7 +28,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
  * @author mbrasci
  */
 @RestController
-@RequestMapping(value = "/employees", produces = "application/hal+json")
+@RequestMapping(value = "/employees", produces = MediaTypes.HAL_JSON_VALUE)
 public class EmployeeController {
 
     public static final String ENDPOINT_LIST = "list";
@@ -31,16 +37,12 @@ public class EmployeeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> resource() {
-        Resources<Object> resources = new Resources<>(Collections.emptySet());
+        RepositoryLinksResource resources = new RepositoryLinksResource();
 
-        resources.add(createLink(ENDPOINT_LIST));
-        resources.add(createLink(ENDPOINT_ONE));
+        resources.add(linkTo(methodOn(EmployeeController.class).one()).withRel(ENDPOINT_ONE));
+        resources.add(linkTo(methodOn(EmployeeController.class).list()).withRel(ENDPOINT_LIST));
+
         return new ResponseEntity<>(resources, HttpStatus.OK);
-    }
-
-    private Link createLink(String value) {
-        String link = linkTo(EmployeeController.class) + "/" + value;
-        return new Link(link, value);
     }
 
 
@@ -59,6 +61,7 @@ public class EmployeeController {
 
     /**
      * http://localhost:8080/employees/one
+     *
      * @return
      */
     @RequestMapping(value = ENDPOINT_ONE, method = RequestMethod.GET)

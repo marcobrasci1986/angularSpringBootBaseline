@@ -27,7 +27,7 @@
             EmployeeService.findEmployees().then(function (result) {
                 vm.employees = result
             }, function (e) {
-                console.log('there');
+                console.error(e);
             });
 
         }
