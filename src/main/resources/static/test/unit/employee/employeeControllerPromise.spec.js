@@ -4,8 +4,6 @@ describe('EmployeeControllerPromise', function () {
     var vm;
     var mockEmployeeService;
     var mockNoDependencyService;
-    var $q;
-    var deferred, $rootScope;
 
     var employeeData = [{
         "id": 1,
@@ -49,13 +47,7 @@ describe('EmployeeControllerPromise', function () {
      */
     beforeEach(function () {
         mockEmployeeService = {
-            findEmployees: function () {
-                return {
-                    then: function (callback) {
-                        return callback(employeeData);
-                    }
-                }
-            }
+            findEmployees: {}
         };
 
         mockNoDependencyService = {
@@ -77,19 +69,50 @@ describe('EmployeeControllerPromise', function () {
     });
 
     /**
-     * Find the controller you want to test
+     * Find the controller you want to test.
+     * When Angular Injects the EmployeeService and NoDependencyService,
+     * it will use the implementation we provided above
      */
     beforeEach(
-        inject(function ($controller, _$q_, _$rootScope_) {
+        inject(function ($controller) {
             vm = $controller('EmployeeController');
         })
     );
 
 
     it("test find employees", function () {
+        createPromiseFindEmployees(employeeData)
+        
         expect(vm.employees).toBeUndefined();
         vm.findEmployees();
-        expect(vm.employees).toEqual(employeeData)
+        expect(vm.employees).toEqual(employeeData);
+        expect(vm.hasError).toBeFalsy();
     });
 
+    it("test find employees different data", function () {
+        var data = "test";
+
+        createPromiseFindEmployees(data)
+        
+        expect(vm.employees).toBeUndefined();
+        vm.findEmployees();
+        expect(vm.employees).toEqual(data);
+        expect(vm.hasError).toBeFalsy();
+    });
+    
+
+    /**
+     * Setup the data that you will return when promise is resolved
+     * @param data
+     */
+    function createPromiseFindEmployees(data) {
+        spyOn(mockEmployeeService, 'findEmployees').and.callFake(function () {
+            return {
+                then: function (callback) {
+                    return callback(data);
+                }
+            };
+        });
+    }
+    
 });

@@ -7,38 +7,6 @@ describe('EmployeeController', function () {
     var $q;
     var deferred, $rootScope;
 
-    var employeeData = [{
-        "id": 1,
-        "first_name": "Kathleen",
-        "last_name": "Sanders",
-        "email": "ksanders0@hao123.com",
-        "gender": "Female"
-    }, {
-        "id": 2,
-        "first_name": "David",
-        "last_name": "Kim",
-        "email": "dkim1@nature.com",
-        "gender": "Male"
-    }, {
-        "id": 3,
-        "first_name": "Rachel",
-        "last_name": "Mcdonald",
-        "email": "rmcdonald2@tinyurl.com",
-        "gender": "Female"
-    }, {
-        "id": 4,
-        "first_name": "Cynthia",
-        "last_name": "Berry",
-        "email": "cberry3@deliciousdays.com",
-        "gender": "Female"
-    }, {
-        "id": 5,
-        "first_name": "Carolyn",
-        "last_name": "Washington",
-        "email": "cwashington4@blogs.com",
-        "gender": "Female"
-    }];
-
     /**
      * Invoke the module that has this controller inside of it
      */
@@ -75,14 +43,6 @@ describe('EmployeeController', function () {
      */
     beforeEach(
         inject(function ($controller, _$q_, _$rootScope_) {
-            $q = _$q_;
-            
-            $rootScope = _$rootScope_;
-            deferred = $q.defer();
-
-            // Use a Jasmine Spy to return the deferred promise
-            spyOn(mockEmployeeService, 'findEmployees').and.returnValue(deferred.promise);
-
             vm = $controller('EmployeeController');
         })
     );
@@ -114,21 +74,5 @@ describe('EmployeeController', function () {
         expect(mockNoDependencyService.sum).toHaveBeenCalledWith(5, 5);
     });
     
-
-
-    // it("test find employees", function () {
-    //
-    //
-    //     deferred.promise.then(function (value) {
-    //         expect(vm.employees).toEqual(employeeData);
-    //     });
-    //    
-    //     // Setup the data we wish to return for the .then function in the controller
-    //     deferred.resolve(employeeData);
-    //     $rootScope.$digest();
-    //    
-    //     vm.findEmployees();
-    //    
-    // });
-
+    
 });
