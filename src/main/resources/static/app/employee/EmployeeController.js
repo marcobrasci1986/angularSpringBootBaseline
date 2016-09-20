@@ -11,6 +11,8 @@
     function EmployeeController(EmployeeService, NoDependencyService) {
         var vm = this;
 
+        vm.hasError = 'test';
+
 
         init();
         /**
