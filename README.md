@@ -1,1 +1,3 @@
 # angularSpringBootBaseline
+
+DEBUG

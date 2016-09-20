@@ -9,11 +9,15 @@
 
     function NoDependencyService() {
         return {
-            sum: _sum
+            sum: _sum,
+            multiply: _multiply
 
         };
         function _sum(a, b) {
             return a + b;
+        }       
+        function _multiply(a, b) {
+            return a * b;
         }
     }
 }());

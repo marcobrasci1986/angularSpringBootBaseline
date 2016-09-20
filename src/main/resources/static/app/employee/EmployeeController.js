@@ -13,20 +13,24 @@
 
 
         init();
-
+        /**
+         * TODO test init
+         */
         function init() {
             console.log('init employee Controller');
-            var sum = NoDependencyService.sum(5, 3);
-            console.log('sum: ' + sum);
-
-            findEmployees();
-
+            vm.multiply = NoDependencyService.multiply(5, 5);
         }
 
-        function findEmployees() {
+        vm.calculateSum = function (a, b) {
+            vm.sum = NoDependencyService.sum(a, b);
+        };
+
+        vm.findEmployees = function () {
             EmployeeService.findEmployees().then(function (result) {
-                vm.employees = result
+                vm.employees = result;
+                vm.hasError = false;
             }, function (e) {
+                vm.hasError = true;
                 console.error(e);
             });
 

@@ -11,24 +11,18 @@
         traverson.registerMediaType(TraversonJsonHalAdapter.mediaType, TraversonJsonHalAdapter);
 
         function request() {
-            return traverson.from(API_ROOT_URL).jsonHal().withRequestOptions({headers: {'accept': 'application/hal+json'}});;
+            return traverson.from(API_ROOT_URL).jsonHal().withRequestOptions({headers: {'accept': 'application/hal+json'}});
         }
 
         return {
             findEmployees: _findEmployees,
-            sum: _sum
-
         };
 
         function _findEmployees() {
             return request()
-                 .follow("employees", "list")
+                .follow("employees", "list")
                 .getResource().result;
 
-        }
-
-        function _sum(a, b) {
-            return a + b;
         }
 
 
