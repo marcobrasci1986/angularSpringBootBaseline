@@ -29,6 +29,7 @@
             EmployeeService.findEmployees().then(function (result) {
                 vm.employees = result;
                 vm.hasError = false;
+                vm.size = result.length;
             }, function (e) {
                 vm.hasError = true;
                 console.error(e);
