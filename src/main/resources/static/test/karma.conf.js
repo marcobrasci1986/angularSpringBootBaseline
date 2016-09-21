@@ -16,8 +16,9 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/traverson-angular/browser/dist/traverson-angular.js',
-      'node_modules/traverson-hal/browser/dist/traverson-hal.min.js',
+      'node_modules/restangular/dist/restangular.min.js',
+      // 'node_modules/traverson-angular/browser/dist/traverson-angular.js',
+      // 'node_modules/traverson-hal/browser/dist/traverson-hal.min.js',
       'app/**/*.js',
       'test/**/*.js',
       'app/**/*.html'
@@ -61,6 +62,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
+    //  browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -71,4 +73,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};

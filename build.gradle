@@ -10,6 +10,9 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.craigburke.karma' version '1.4.3'
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
@@ -34,3 +37,13 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE')
 }
+
+karma {
+    basePath = 'src/main/resources/static/test'
+    profile 'angularJS' // <3>
+
+    browsers = ['PhantomJS'] // <4>
+    frameworks = ['jasmine'] // <5>
+    reporters = ['junit'] // <6>
+}
+

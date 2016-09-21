@@ -5,23 +5,28 @@
         .factory('EmployeeService', EmployeeService);
 
 
-    EmployeeService.$inject = ['traverson', 'API_ROOT_URL'];
+    /**
+     * http://localhost:8080/api
+     * http://localhost:8080/api/employees/list
+     * @type {string[]}
+     */
+    EmployeeService.$inject = ['Restangular', 'API_ROOT_URL'];
 
-    function EmployeeService(traverson, API_ROOT_URL) {
-        traverson.registerMediaType(TraversonJsonHalAdapter.mediaType, TraversonJsonHalAdapter);
-
-        function request() {
-            return traverson.from(API_ROOT_URL).jsonHal().withRequestOptions({headers: {'accept': 'application/hal+json'}});
-        }
+    function EmployeeService(Restangular, API_ROOT_URL) {
+        var base = Restangular.all("employees");
 
         return {
             findEmployees: _findEmployees,
+            findOne: _findOne
         };
 
         function _findEmployees() {
-            return request()
-                .follow("employees", "list")
-                .getResource().result;
+            return base.customGET('list');
+
+        }        
+        
+        function _findOne() {
+            return base.customGET('one');
 
         }
 
