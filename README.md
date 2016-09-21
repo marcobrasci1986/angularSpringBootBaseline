@@ -6,4 +6,6 @@ Links:
 
 TODO:
 - Use $httpBackend to test Repository (Restangular or in our case Traverson);
+- Execute karma through gradle:
+http://stackoverflow.com/questions/22336537/how-to-run-js-karma-tests-from-gradle
 
