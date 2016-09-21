@@ -10,9 +10,9 @@
      * http://localhost:8080/api/employees/list
      * @type {string[]}
      */
-    EmployeeService.$inject = ['Restangular', 'API_ROOT_URL'];
+    EmployeeService.$inject = ['Restangular'];
 
-    function EmployeeService(Restangular, API_ROOT_URL) {
+    function EmployeeService(Restangular) {
         var base = Restangular.all("employees");
 
         return {
@@ -20,11 +20,21 @@
             findOne: _findOne
         };
 
+        /**
+         * http://localhost:8080/employees/
+         * @return {*}
+         * @private
+         */
         function _findEmployees() {
-            return base.customGET('list');
+            return Restangular.all("employees").get("");
 
-        }        
-        
+        }
+
+        /**
+         * http://localhost:8080/employees/one
+         * @return {*}
+         * @private
+         */
         function _findOne() {
             return base.customGET('one');
 
