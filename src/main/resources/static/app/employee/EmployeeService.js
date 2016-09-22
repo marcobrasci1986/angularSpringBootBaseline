@@ -13,8 +13,6 @@
     EmployeeService.$inject = ['Restangular'];
 
     function EmployeeService(Restangular) {
-        var base = Restangular.all("employees");
-
         return {
             findEmployees: _findEmployees,
             findOne: _findOne
@@ -26,17 +24,17 @@
          * @private
          */
         function _findEmployees() {
-            return Restangular.all("employees").get("");
+            return Restangular.all("employees").getList();
 
         }
 
         /**
-         * http://localhost:8080/employees/one
+         * http://localhost:8080/employees/5
          * @return {*}
          * @private
          */
-        function _findOne() {
-            return base.customGET('one');
+        function _findOne(id) {
+            return Restangular.one('employees', id).get();
 
         }
 

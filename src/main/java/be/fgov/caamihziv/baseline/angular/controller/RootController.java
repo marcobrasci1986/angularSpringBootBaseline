@@ -20,10 +20,10 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 public class RootController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public HttpEntity<RepositoryLinksResource> resource() {
+    public ResponseEntity<?> resource() {
         RepositoryLinksResource resources = new RepositoryLinksResource();
-
-        resources.add(linkTo(methodOn(EmployeeController.class).resource()).withRel("employees"));
+        resources.add(linkTo(methodOn(EmployeeController.class).findById("{id}")).withRel(EmployeeController.ENDPOINT_ONE));
+        resources.add(linkTo(methodOn(EmployeeController.class).employees()).withRel(EmployeeController.ENDPOINT_LIST));
         return new ResponseEntity<>(resources, HttpStatus.OK);
     }
 }

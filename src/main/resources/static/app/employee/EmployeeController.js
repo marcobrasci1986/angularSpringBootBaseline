@@ -25,6 +25,7 @@
 
         vm.calculateSum = function (a, b) {
             vm.sum = NoDependencyService.sum(a, b);
+            vm.sumPlus10 = vm.sum + 10;
         };
 
         vm.findEmployees = function () {
@@ -36,8 +37,16 @@
                 vm.hasError = true;
                 console.error(e);
             });
-
-        }
+        };
+        
+        vm.findOne = function () {
+            EmployeeService.findOne(5).then(function (result) {
+                console.log('result: ' + result);
+                vm.one = result;
+            }, function (e) {
+                console.error(e);
+            });
+        };
 
 
     }

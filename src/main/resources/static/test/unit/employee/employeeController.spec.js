@@ -4,8 +4,6 @@ describe('EmployeeController', function () {
     var vm;
     var mockEmployeeService;
     var mockNoDependencyService;
-    var $q;
-    var deferred, $rootScope;
 
     /**
      * Invoke the module that has this controller inside of it
@@ -13,7 +11,7 @@ describe('EmployeeController', function () {
     beforeEach(module('controllers'));
 
     /**
-     * Setup up dependencies for the controller that you want to test
+     * Setup up mock dependencies for the controller that you want to test
      */
     beforeEach(function () {
         mockEmployeeService = {
@@ -39,10 +37,10 @@ describe('EmployeeController', function () {
     });
 
     /**
-     * Find the controller you want to test
+     * Find the controller you want to test. Will use the above services in DI
      */
     beforeEach(
-        inject(function ($controller, _$q_, _$rootScope_) {
+        inject(function ($controller) {
             vm = $controller('EmployeeController');
         })
     );
@@ -70,6 +68,7 @@ describe('EmployeeController', function () {
         vm.calculateSum(5, 5);
 
         expect(vm.sum).toBe(25);
+        expect(vm.sumPlus10).toBe(35);
 
         expect(mockNoDependencyService.sum).toHaveBeenCalledWith(5, 5);
     });

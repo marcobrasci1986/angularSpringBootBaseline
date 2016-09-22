@@ -5,6 +5,7 @@ describe('EmployeeControllerPromise', function () {
     var mockEmployeeService;
     var mockNoDependencyService;
 
+    // Mock data 
     var employeeData = [{
         "id": 1,
         "first_name": "Kathleen",
@@ -43,7 +44,7 @@ describe('EmployeeControllerPromise', function () {
     beforeEach(module('controllers'));
 
     /**
-     * Setup up dependencies for the controller that you want to test
+     * Setup up mock dependencies for the controller that you want to test
      */
     beforeEach(function () {
         mockEmployeeService = {
@@ -82,7 +83,7 @@ describe('EmployeeControllerPromise', function () {
 
     it("test find employees", function () {
         createPromiseFindEmployees(employeeData)
-        
+
         expect(vm.employees).toBeUndefined();
         vm.findEmployees();
         expect(vm.employees).toEqual(employeeData);
@@ -92,14 +93,29 @@ describe('EmployeeControllerPromise', function () {
     it("test find employees different data", function () {
         var data = "test";
 
-        createPromiseFindEmployees(data)
-        
+        createPromiseFindEmployees(data);
+
         expect(vm.employees).toBeUndefined();
         vm.findEmployees();
         expect(vm.employees).toEqual(data);
         expect(vm.hasError).toBeFalsy();
     });
-    
+
+    it("test find employees throws error", function () {
+        var someError = "Some error";
+        spyOn(mockEmployeeService, "findEmployees").and.throwError(someError);
+        
+        expect(vm.employees).toBeUndefined();
+        
+        expect(function () {
+            vm.findEmployees();
+        }).toThrowError(someError);
+
+
+        expect(vm.employees).toBeUndefined();
+        expect(vm.hasError).toBeTruthy();
+    });
+
 
     /**
      * Setup the data that you will return when promise is resolved
@@ -114,5 +130,5 @@ describe('EmployeeControllerPromise', function () {
             };
         });
     }
-    
+
 });

@@ -8,7 +8,8 @@ describe("NoDependency Test", function () {
     beforeEach(module('services'));
 
     /**
-     * Init service you want to test
+     * Init service you want to test.
+     * Wrap the parameter in underscores
      */
     beforeEach(
         inject(function (_NoDependencyService_) {
