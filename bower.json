@@ -1,0 +1,31 @@
+{
+  "name": "angular-spring-boot-baseline",
+  "description": "",
+  "main": "",
+  "authors": [
+    "mbrasci <mbrasci@caami.be>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/marcobrasci1986/angularSpringBootBaseline",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0",
+    "restangular": "^1.5.2",
+    "traverson": "^3.2.0",
+    "traverson-angular": "^3.1.1",
+    "traverson-hal": "^4.1.1",
+    "lodash": "^4.16.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8"
+  }
+}

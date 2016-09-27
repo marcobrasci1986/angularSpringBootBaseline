@@ -1,11 +1,8 @@
-// Karma configuration
-// Generated on Fri Sep 16 2016 15:28:48 GMT+0200 (Romance Daylight Time)
-
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../',
+    basePath: './src/main/resources/static/',
 
 
     // frameworks to use
@@ -14,17 +11,22 @@ module.exports = function(config) {
     
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.min.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/restangular/dist/restangular.min.js',
-      'app/**/*.js',
+      'app/bower_components/angular/angular.min.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/restangular/dist/restangular.min.js',
+      'app/bower_components/lodash/dist/lodash.min.js',
       'test/**/*.js',
-      'app/**/*.html'
+      'app/app.js',
+      'app/common/*.js',
+      'app/employee/*.js'
+      // 'app/bower_components/restangular/dist/restangular.min.js',
+      // 'app/**/*.html
     ],
 
 
     // list of files to exclude
     exclude: [
+
     ],
 
 
@@ -54,7 +56,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
@@ -65,10 +67,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: 1
   })
 };
