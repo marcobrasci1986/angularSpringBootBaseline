@@ -17,8 +17,6 @@ module.exports = function(config) {
       'node_modules/angular/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/restangular/dist/restangular.min.js',
-      // 'node_modules/traverson-angular/browser/dist/traverson-angular.js',
-      // 'node_modules/traverson-hal/browser/dist/traverson-hal.min.js',
       'app/**/*.js',
       'test/**/*.js',
       'app/**/*.html'

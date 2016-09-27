@@ -9,10 +9,11 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
-
 plugins {
-    id 'com.craigburke.karma' version '1.4.3'
+    id "com.moowork.node" version "0.13"
 }
+
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
@@ -29,6 +30,8 @@ repositories {
 }
 
 
+
+
 dependencies {
     compile('org.springframework.boot:spring-boot-devtools:1.4.0.RELEASE')
     compile('org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE')
@@ -38,12 +41,11 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE')
 }
 
-karma {
-    basePath = 'src/main/resources/static/test'
-    profile 'angularJS' // <3>
+node {
 
-    browsers = ['PhantomJS'] // <4>
-    frameworks = ['jasmine'] // <5>
-    reporters = ['junit'] // <6>
+    // location of package.json (and eventually node_modules)
+    nodeModulesDir = file("${project.projectDir}/src/main/resources/static/")
 }
+
+
 
