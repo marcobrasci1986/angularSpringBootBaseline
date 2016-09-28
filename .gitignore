@@ -2,3 +2,5 @@
 build
 node_modules
 bower_components
+#exclude jasmine grunt build
+src/main/resources/static/build/**/*
