@@ -30,7 +30,7 @@ describe('EmployeeController', function () {
          * Provide mocks that will be used to resolve dependencies for the controller that we want to test
          */
         module(function ($provide) {
-            $provide.value('EmployeeService', mockEmployeeService);
+            $provide.value('EmployeeServiceTraverson', mockEmployeeService);
             $provide.value('NoDependencyService', mockNoDependencyService);
         });
 

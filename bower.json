@@ -19,7 +19,6 @@
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
-    "restangular": "^1.5.2",
     "traverson": "^3.2.0",
     "traverson-angular": "^3.1.1",
     "traverson-hal": "^4.1.1",

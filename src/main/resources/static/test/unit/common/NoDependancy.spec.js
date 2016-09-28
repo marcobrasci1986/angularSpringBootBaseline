@@ -6,6 +6,7 @@ describe("NoDependency Test", function () {
      * Invoke the module that has this service inside of it
      */
     beforeEach(module('services'));
+    beforeEach(module('traverson'));
 
     /**
      * Init service you want to test.

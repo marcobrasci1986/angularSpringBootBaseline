@@ -5,10 +5,10 @@
         .module('controllers')
         .controller('EmployeeController', EmployeeController);
 
-    EmployeeController.$inject = ['EmployeeService', 'NoDependencyService'];
+    EmployeeController.$inject = ['EmployeeServiceTraverson', 'NoDependencyService'];
 
 
-    function EmployeeController(EmployeeService, NoDependencyService) {
+    function EmployeeController(EmployeeServiceTraverson, NoDependencyService) {
         var vm = this;
 
         vm.hasError = 'test';
@@ -29,7 +29,7 @@
         };
 
         vm.findEmployees = function () {
-            EmployeeService.findEmployees().then(function (result) {
+            EmployeeServiceTraverson.findEmployees().then(function (result) {
                 vm.employees = result;
                 vm.hasError = false;
                 vm.size = result.length;
@@ -40,7 +40,7 @@
         };
         
         vm.findOne = function () {
-            EmployeeService.findOne(5).then(function (result) {
+            EmployeeServiceTraverson.findOne(5).then(function (result) {
                 console.log('result: ' + result);
                 vm.one = result;
             }, function (e) {

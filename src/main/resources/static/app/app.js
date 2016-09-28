@@ -10,7 +10,7 @@
         ]);
 
     angular.module('controllers', []);
-    angular.module('services', ['restangular']);
+    angular.module('services', ['traverson']);
 
     app.constant('API_ROOT_URL', 'http://localhost:8080/api');
 

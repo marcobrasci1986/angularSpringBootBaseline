@@ -13,8 +13,8 @@ module.exports = function (config) {
         files: [
             'bower_components/angular/angular.min.js',
             'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/restangular/dist/restangular.min.js',
-            'bower_components/lodash/dist/lodash.min.js',
+            'bower_components/traverson-angular/browser/dist/traverson-angular.js',
+            'bower_components/traverson-hal/browser/dist/traverson-hal.min.js',
             'app/**/*.js',
             'test/**/*.js'
         ],

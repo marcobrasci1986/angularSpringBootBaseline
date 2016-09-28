@@ -22,8 +22,8 @@ public class RootController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> resource() {
         RepositoryLinksResource resources = new RepositoryLinksResource();
-        resources.add(linkTo(methodOn(EmployeeController.class).findById("{id}")).withRel(EmployeeController.ENDPOINT_ONE));
-        resources.add(linkTo(methodOn(EmployeeController.class).employees()).withRel(EmployeeController.ENDPOINT_LIST));
+        resources.add(linkTo(methodOn(EmployeeController.class).findById("{id}")).withRel("find"));
+        resources.add(linkTo(methodOn(EmployeeController.class).employees()).withRel("list"));
         return new ResponseEntity<>(resources, HttpStatus.OK);
     }
 }

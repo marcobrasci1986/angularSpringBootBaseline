@@ -26,8 +26,8 @@ public class EmployeeController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
-    public static final String ENDPOINT_LIST = "/employees";
-    public static final String ENDPOINT_ONE = "/employees/{id}";
+    public static final String ENDPOINT_LIST = "employees";
+    public static final String ENDPOINT_ONE = ENDPOINT_LIST + "/{id}";
     private List<Employee> employees = new ArrayList<>();
 
 
