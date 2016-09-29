@@ -21,6 +21,16 @@ exports.config = {
         profile: false,
         'no-source': true
     },
+    onPrepare: function () {
+    
+        // browser.ignoreSynchronization = false;
+        browser.manage().window().maximize();
+        var chai = require('chai');
+        var chaiAsPromised = require('chai-as-promised');
+        chai.use(chaiAsPromised);
+        global.expect = chai.expect;
+    
+    },
     
     params: {
         test: 'test-global-var'

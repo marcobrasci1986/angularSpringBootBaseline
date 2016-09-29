@@ -13,6 +13,7 @@ https://github.com/craigburke/karma-gradle
 
 Protractor
 https://semaphoreci.com/community/tutorials/getting-started-with-protractor-and-cucumber
+https://github.com/igniteram/protractor-cucumber-allure/tree/master/StepDefinitions
 npm install protractor -g
 webdriver-manager update
 webdriver-manager start (leave it running)
@@ -26,5 +27,9 @@ add node plugin
 new node config
 C:\Users\mbrasci\AppData\Roaming\npm\node_modules\protractor\bin\protractor
 protractor.conf.js
+
+Page Objects + Configuring Test Suites:
+http://stuff.aftnn.org/acceptance-testing-cucumber.js-protractor/#1
+https://github.com/angular/protractor/blob/master/docs/page-objects.md?__hstc=233161921.7487beeeae4d0a86c335be0f703ea7c6.1475066733203.1475135864534.1475139008823.4&__hssc=233161921.2.1475139008823&__hsfp=3412413957#with-pageobjects
 
 
