@@ -20,8 +20,11 @@ module.exports = function (config) {
         ],
 
 
+        /**
+         * Exclude all e2e files
+         */
         exclude: [
-            'test/e2e/*.js'
+            'test/e2e/**/*.js'
         ],
 
         // test results reporter to use

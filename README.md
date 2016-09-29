@@ -12,6 +12,7 @@ https://github.com/craigburke/karma-gradle
 
 
 Protractor
+https://semaphoreci.com/community/tutorials/getting-started-with-protractor-and-cucumber
 npm install protractor -g
 webdriver-manager update
 webdriver-manager start (leave it running)
