@@ -2,18 +2,14 @@ var employeePage = function () {
     "use strict";
     this.url = 'app/index.html';
 
-    var pageTitle = element(by.css('h1'));
-    var findEmployeesButton = element(by.css("button.btn"));
-
-
-
+    
     this.getPageTitle = function () {
-        return pageTitle.getText();
-    };       
-    
-    
+        return element(by.css('h1')).getText();
+    };
+
+
     this.findEmployeesButton = function () {
-        return findEmployeesButton;
+        return element(by.css("button.btn"));
     };
 };
 module.exports = employeePage;

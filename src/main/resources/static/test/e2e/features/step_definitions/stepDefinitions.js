@@ -41,9 +41,9 @@ module.exports = function () {
      */
     this.Then(/^I verify the count of table is (\d+)$/, function (expectedCount, callback) {
         element.all(by.repeater("employee in vm.employees")).count().then(function (tableRowCount) {
-                expect(parseInt(expectedCount)).to.equal(tableRowCount);
-                return callback();
-            });
+            expect(parseInt(expectedCount)).to.equal(tableRowCount);
+            return callback();
+        });
 
     });
 

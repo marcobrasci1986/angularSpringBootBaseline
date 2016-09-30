@@ -1,3 +1,21 @@
+/**
+ * Import html-generator
+ */
+var reporter = require('cucumber-html-reporter');
+
+var pathCucumberJsonFile = './Reports/report.json';
+var pathCucumberHtmlFile = './Reports/report.html';
+
+var cucumberHtmlReporterOptions = {
+    theme: 'bootstrap',
+    jsonFile: pathCucumberJsonFile,
+    output: pathCucumberHtmlFile,
+    reportSuiteAsScenarios: false,
+    launchReport: true
+};
+
+
+
 exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -13,23 +31,26 @@ exports.config = {
     specs: [
         'src/main/resources/static/test/e2e/features/*.feature'
     ],
-
+    
     cucumberOpts: {
         require: 'src/main/resources/static/test/e2e/features/step_definitions/stepDefinitions.js',
         tags: false,
-        format: 'pretty',
+        format:'json:' + pathCucumberJsonFile,
         profile: false,
         'no-source': true
     },
     onPrepare: function () {
-    
-        // browser.ignoreSynchronization = false;
-        browser.manage().window().maximize();
+        
+        // browser.manage().window().maximize();
         var chai = require('chai');
         var chaiAsPromised = require('chai-as-promised');
         chai.use(chaiAsPromised);
         global.expect = chai.expect;
     
+    },
+
+    afterLaunch: function () {
+        reporter.generate(cucumberHtmlReporterOptions);
     },
     
     params: {

@@ -18,6 +18,7 @@ npm install protractor -g
 webdriver-manager update
 webdriver-manager start (leave it running)
 protractor protractor.conf.js (new terminal)
+protractor protractor.conf.js --params.baseUrl http://localhost:8080/
 
 find global node dir:
 npm root -g
@@ -31,5 +32,10 @@ protractor.conf.js
 Page Objects + Configuring Test Suites:
 http://stuff.aftnn.org/acceptance-testing-cucumber.js-protractor/#1
 https://github.com/angular/protractor/blob/master/docs/page-objects.md?__hstc=233161921.7487beeeae4d0a86c335be0f703ea7c6.1475066733203.1475135864534.1475139008823.4&__hssc=233161921.2.1475139008823&__hsfp=3412413957#with-pageobjects
+
+
+Protractor framework: 'cucumber': https://github.com/mattfritz/protractor-cucumber-framework
+HTML report generator: https://github.com/gkushang/cucumber-html-reporter
+
 
 
