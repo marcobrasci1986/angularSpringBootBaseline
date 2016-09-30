@@ -17,7 +17,7 @@ Click the button 'find employee' to load the hardcoded list
 # Unit Tests (Jasmine)
 Run [karma start] to run the unit tests
 
-Reports are located under src/main/resources/static/build/coverage
+Reports are located under ./src/main/resources/static/build/coverage
 
 # E2E Tests (Protractor + CucumberJs)
 1. Launch the app so it is running on http://localhost:8080/
