@@ -1,5 +1,5 @@
 # angularSpringBootBaseline
-A simple baseline project with angular unit test and e2e tests with protractor and cucumberJs
+A simple baseline project with angular unit tests and e2e tests with protractor and cucumberJs
 
 # Installation
 - npm install
