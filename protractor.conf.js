@@ -3,6 +3,10 @@
  */
 var reporter = require('cucumber-html-reporter');
 
+/**
+ * Path where json + html must be stored
+ * @type {string}
+ */
 var pathCucumberJsonFile = './Reports/report.json';
 var pathCucumberHtmlFile = './Reports/report.html';
 
@@ -14,23 +18,27 @@ var cucumberHtmlReporterOptions = {
     launchReport: true
 };
 
-
 exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
     getPageTimeout: 60000,
     allScriptsTimeout: 900000,
     framework: 'custom',
-    // path relative to the current config file
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
     capabilities: {
         browserName: 'chrome'
     },
+    /**
+     * Add all you features here
+     */
     specs: [
         'src/main/resources/static/test/e2e/features/*.feature'
     ],
 
+    /**
+     * Config protractor-cucumber-framework
+     */
     cucumberOpts: {
         require: [
             'src/main/resources/static/test/e2e/features/step_definitions/*.js',
@@ -42,22 +50,16 @@ exports.config = {
         'no-source': true
     },
     onPrepare: function () {
-
-        // browser.manage().window().maximize();
-        var chai = require('chai');
-        var chaiAsPromised = require('chai-as-promised');
-        chai.use(chaiAsPromised);
-        global.expect = chai.expect;
-
+        console.log('onPrepare callback');
     },
     onCleanUp: function () {
-        console.log('onCleanUp');
+        console.log('onCleanUp callback');
     },
     afterLaunch: function () {
-        console.log('afterLaunch');
+        console.log('afterLaunch callback');
+        console.log('Generating cucumberHtmlReports');
         reporter.generate(cucumberHtmlReporterOptions);
     },
-
     params: {
         test: 'test-global-var'
     }

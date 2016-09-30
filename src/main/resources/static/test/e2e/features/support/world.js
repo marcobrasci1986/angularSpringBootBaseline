@@ -3,6 +3,11 @@
  * @constructor
  */
 function World() {
+    var chai = require('chai');
+    var chaiAsPromised = require('chai-as-promised');
+    chai.use(chaiAsPromised);
+    global.expect = chai.expect;
+    
     console.log("Constructing World Object");
     /**
      * protractor protractor.conf.js --params.baseUrl http://localhost:8080/

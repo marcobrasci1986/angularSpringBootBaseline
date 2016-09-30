@@ -9,14 +9,9 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
-plugins {
-    id "com.moowork.grunt" version "0.13"
-    id "com.moowork.node" version "0.13"
-}
 
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 
 jar {
@@ -31,21 +26,14 @@ repositories {
 }
 
 
-
-
 dependencies {
-    compile('org.springframework.boot:spring-boot-devtools:1.4.0.RELEASE')
-    compile('org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE')
-    compile("org.springframework.boot:spring-boot-starter-data-rest:1.4.0.RELEASE")
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.21.0.RELEASE'
 
-    testCompile('org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-node {
-
-    // location of package.json (and eventually node_modules)
-    nodeModulesDir = file("${project.projectDir}/src/main/resources/static/")
-}
 
 
