@@ -10,7 +10,7 @@ module.exports = function () {
     this.World = require("../support/world.js").World;
 
     var employeePage = new EmployeePage();
-    
+
     /**
      * Go the employee page and verify:
      * - app title
