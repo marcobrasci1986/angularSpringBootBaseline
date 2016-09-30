@@ -15,7 +15,6 @@ var cucumberHtmlReporterOptions = {
 };
 
 
-
 exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -24,35 +23,38 @@ exports.config = {
     framework: 'custom',
     // path relative to the current config file
     frameworkPath: require.resolve('protractor-cucumber-framework'),
-    
+
     capabilities: {
         browserName: 'chrome'
     },
     specs: [
         'src/main/resources/static/test/e2e/features/*.feature'
     ],
-    
+
     cucumberOpts: {
-        require: 'src/main/resources/static/test/e2e/features/step_definitions/stepDefinitions.js',
+        require: ['src/main/resources/static/test/e2e/features/step_definitions/*.js'],
         tags: false,
-        format:'json:' + pathCucumberJsonFile,
+        format: 'json:' + pathCucumberJsonFile,
         profile: false,
         'no-source': true
     },
     onPrepare: function () {
-        
+
         // browser.manage().window().maximize();
         var chai = require('chai');
         var chaiAsPromised = require('chai-as-promised');
         chai.use(chaiAsPromised);
         global.expect = chai.expect;
-    
-    },
 
+    },
+    onCleanUp: function () {
+        console.log('onCleanUp');
+    },
     afterLaunch: function () {
+        console.log('afterLaunch');
         reporter.generate(cucumberHtmlReporterOptions);
     },
-    
+
     params: {
         test: 'test-global-var'
     }

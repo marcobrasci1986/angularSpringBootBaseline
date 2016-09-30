@@ -37,5 +37,7 @@ https://github.com/angular/protractor/blob/master/docs/page-objects.md?__hstc=23
 Protractor framework: 'cucumber': https://github.com/mattfritz/protractor-cucumber-framework
 HTML report generator: https://github.com/gkushang/cucumber-html-reporter
 
+Protractor config: https://github.com/angular/protractor/blob/master/lib/config.ts
+
 
 
