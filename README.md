@@ -17,6 +17,7 @@ Click the button 'find employee' to load the hardcoded list
 # Unit Tests (Jasmine)
 Run [karma start] to run the unit tests
 
+Files are located under ./src/main/resources/static/test/unit
 Reports are located under ./src/main/resources/static/build/coverage
 
 # E2E Tests (Protractor + CucumberJs)
@@ -25,6 +26,7 @@ Reports are located under ./src/main/resources/static/build/coverage
 1. Open up a terminal and launch webdriver: [webdriver-manager start]  (leave this running)
 1. Open up another terminal and start the protractor tests with: [protractor protractor.conf.js --params.baseUrl http://localhost:8080/]
 
+Files are located under ./src/main/resources/static/test/e2e
 Reports (json + html + screenshots) are located under ./Reports
 
 
