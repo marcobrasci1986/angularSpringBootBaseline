@@ -44,9 +44,7 @@ module.exports = function () {
      * Find an element with the given css and click it.
      */
     this.Then(/^I click the button to find employees$/, function (callback) {
-        employeePage.findEmployeesButton().click().then(function () {
-            return callback();
-        })
+        employeePage.findEmployeesButton().click().then(callback)
     });
 
 
