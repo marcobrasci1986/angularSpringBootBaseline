@@ -13,5 +13,6 @@ Feature: Employees List
     Given I am on the employee page
     Then I verify the count of table is 0
     Then I click the button to find employees
-    Then I check the title of the page
+    Then I verify the count of table is 1
+    Then I click the button to find employees
     Then I verify the count of table is 3

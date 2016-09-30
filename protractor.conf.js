@@ -32,7 +32,10 @@ exports.config = {
     ],
 
     cucumberOpts: {
-        require: ['src/main/resources/static/test/e2e/features/step_definitions/*.js'],
+        require: [
+            'src/main/resources/static/test/e2e/features/step_definitions/*.js',
+            'src/main/resources/static/test/e2e/features/support/hooks.js'
+        ],
         tags: false,
         format: 'json:' + pathCucumberJsonFile,
         profile: false,

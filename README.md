@@ -39,5 +39,7 @@ HTML report generator: https://github.com/gkushang/cucumber-html-reporter
 
 Protractor config: https://github.com/angular/protractor/blob/master/lib/config.ts
 
+Hooks add to step: http://stackoverflow.com/questions/31180389/loading-hooks-in-cucumberjs-with-protractor-and-gulp
+
 
 
