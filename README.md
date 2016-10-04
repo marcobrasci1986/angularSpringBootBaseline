@@ -22,9 +22,10 @@ Run [karma start] to run the unit tests
 
 # E2E Tests (Protractor + CucumberJs)
 1. Launch the app so it is running on http://localhost:8080/
-1. Update webdriver: [webdriver-manager update] (only first time)
-1. Open up a terminal and launch webdriver: [webdriver-manager start]  (leave this running)
+1. Update webdriver, run in cmd line: [webdriver-manager update] (only first time)
+1. Open up a terminal and launch webdriver, run in cmd line: [webdriver-manager start]  (leave this running)
 1. Open up another terminal and start the protractor tests with: [protractor protractor.conf.js --params.baseUrl http://localhost:8080/]
+1. 1 Scenario will pass one will fail, just to show that a screenshot is made when a scenario fails 
 
 Files are located under ./src/main/resources/static/test/e2e
 Reports (json + html + screenshots) are located under ./Reports
