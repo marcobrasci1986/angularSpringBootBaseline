@@ -6,8 +6,8 @@ A simple baseline project with angular unit tests and e2e tests with protractor 
 - bower install
 
 # API
-http://localhost:8080/api
-http://localhost:8080/employees -> returns a hardcoded list of employees
+- http://localhost:8080/api
+- http://localhost:8080/employees -> returns a hardcoded list of employees
 
 # AngularApp
 The app is just one simple page. You can find it at http://localhost:8080/app/index.html.
@@ -17,8 +17,8 @@ Click the button 'find employee' to load the hardcoded list
 # Unit Tests (Jasmine)
 Run [karma start] to run the unit tests
 
-Files are located under ./src/main/resources/static/test/unit
-Reports are located under ./src/main/resources/static/build/coverage
+1. Files are located under ./src/main/resources/static/test/unit
+1. Reports are located under ./src/main/resources/static/build/coverage
 
 # E2E Tests (Protractor + CucumberJs)
 1. Launch the app so it is running on http://localhost:8080/
