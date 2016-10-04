@@ -6,6 +6,9 @@ A simple baseline project with angular unit tests and e2e tests with protractor 
 - bower install
 
 # API
+Launch the spring boot app with the main class: \src\main\java\be\fgov\caamihziv\baseline\angular\Application.java
+Now there should be two REST links:
+
 - http://localhost:8080/api
 - http://localhost:8080/employees -> returns a hardcoded list of employees
 
