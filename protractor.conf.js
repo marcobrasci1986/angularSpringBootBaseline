@@ -7,8 +7,9 @@ var reporter = require('cucumber-html-reporter');
  * Path where json + html must be stored
  * @type {string}
  */
-var pathCucumberJsonFile = './Reports/report.json';
-var pathCucumberHtmlFile = './Reports/report.html';
+var reportsFolder = "./build/aft/";
+var pathCucumberJsonFile = reportsFolder + 'report.json';
+var pathCucumberHtmlFile = reportsFolder + 'report.html';
 
 var cucumberHtmlReporterOptions = {
     theme: 'bootstrap',
@@ -51,6 +52,19 @@ exports.config = {
     },
     onPrepare: function () {
         console.log('onPrepare callback');
+        var fs = require('fs');
+        try {
+
+            if (!fs.existsSync(reportsFolder)) {
+                console.log('reportsFolder does not exist. Creating folder: ' + reportsFolder);
+                fs.mkdirSync(reportsFolder);
+            } else {
+                console.log('ReportsFolder already exists.');
+            }
+        }
+        catch (e) {
+            console.error('Error creating reports folder in build', e);
+        }
     },
     onCleanUp: function () {
         console.log('onCleanUp callback');
@@ -61,7 +75,8 @@ exports.config = {
         reporter.generate(cucumberHtmlReporterOptions);
     },
     params: {
-        test: 'test-global-var'
+        test: 'test-global-var',
+        baseUrl: 'http://localhost:8080/'
     }
 
 };

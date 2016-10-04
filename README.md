@@ -31,6 +31,6 @@ Run [karma start] to run the unit tests
 1. 1 Scenario will pass one will fail, just to show that a screenshot is made when a scenario fails 
 
 - Files are located under ./src/main/resources/static/test/e2e
-- Reports (json + html + screenshots) are located under ./Reports
+- Reports (json + html + screenshots) are located under ./build/aft/
 
 
