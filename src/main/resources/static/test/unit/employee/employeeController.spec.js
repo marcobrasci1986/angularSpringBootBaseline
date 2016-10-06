@@ -50,6 +50,7 @@ describe('EmployeeController', function () {
 
         vm.calculateSum(5, 3);
         expect(vm.sum).toBe(8);
+        expect(vm.sumPlus10).toBe(18);
 
         /**
          * Verify the exact params were used in the call to the mock

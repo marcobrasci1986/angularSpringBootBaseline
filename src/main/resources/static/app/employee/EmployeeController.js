@@ -29,6 +29,7 @@
         };
 
         vm.findEmployees = function () {
+            console.log('Button Find Employees');
             EmployeeServiceTraverson.findEmployees().then(function (result) {
                 vm.employees = result;
                 vm.hasError = false;
