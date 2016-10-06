@@ -11,8 +11,7 @@ function World() {
     console.log("Constructing World Object");
     /**
      * protractor protractor.conf.js --params.baseUrl http://localhost:8080/
-     *
-     * The parameter must be supplied in the commandLine
+     * This parameter must be supplied in the commandLine or in the params section of protractor.conf.js
      *
      * Use in stepsDefinition like: this.baseUrl
      */

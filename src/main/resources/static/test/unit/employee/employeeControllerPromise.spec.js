@@ -82,7 +82,7 @@ describe('EmployeeControllerPromise', function () {
 
 
     it("test find employees", function () {
-        createPromiseFindEmployees(employeeData)
+        createPromiseFindEmployees(employeeData);
 
         expect(vm.employees).toBeUndefined();
         vm.findEmployees();
